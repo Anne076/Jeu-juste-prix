@@ -10,6 +10,7 @@ function ajouterLesEcouteurs() {
     document.querySelector("compose").addEventListener("compositionend", prenom);
     document.querySelector("compo").addEventListener("compositionend", nom);
     document.querySelector("num").addEventListener("compositionend", naissance);
+    document.querySelector("somme").addEventListener("compositionend", article);
 
     // on ajoute un écouteur lorsque un bouton d'un dispositif de pointage a été appuyé ou relaché sur un élément
     document.querySelector("selection").addEventListener("click", casecocher);
@@ -21,16 +22,16 @@ function ajouterLesEcouteurs() {
 
 // variante sur le nom de famille 
 
-function nom (n) {
+function nom (no) {
 
     var validation = document.getElementById ("envoi");
-    var nom = document.getElementById ("name");
-    var nom_m = document.getElementById ("name_manquant");
-    var nom_v = /^[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?/;
+    var no = document.getElementById ("name");
+    var no_m = document.getElementById ("name_manquant");
+    var no_v = /^[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?/;
     name.addEventListener ("compo", nom);
 
     if (nom.validity.valueMissing) {
-        n.preventDefault();
+        no.preventDefault();
         nom_m.textContent = "Nom Manquant";
         nom_m.style.color = "red";
     }else if (nom_v.test(nom.value) == false) {
@@ -45,12 +46,12 @@ function nom (n) {
 
 // variante sur le prénom 
 
-function prenom (p) {
+function prenom (pren) {
 
     var validation = document.getElementById ("envoi");
-    var prenom = document.getElementById ("firstname");
-    var prenom_m = document.getElementById ("firstname_manquant");
-    var prenom_v = /^[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?/;
+    var pren = document.getElementById ("firstname");
+    var pren_m = document.getElementById ("firstname_manquant");
+    var pren_v = /^[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?/;
     firstname.addEventListener ("compose", prenom);
 
     if (prenom.validity.valueMissing) {
@@ -69,12 +70,12 @@ function prenom (p) {
 
 // variante sur age 
 
-function naissance (a) {
+function naissance (na) {
 
     var validation = document.getElementById ("envoi");
-    var age = document.getElementById ("age");
-    var age = parseInt(prompt("Quel est votre age ?"));
-    var age = new RegExp(/^0[1-68]([\.|\-|\s]*[0-9]{2}){4}$/);	
+    var na = document.getElementById ("age");
+    var na = parseInt(prompt("Quel est votre age ?"));
+    var na = new RegExp(/^0[1-68]([\.|\-|\s]*[0-9]{2}){4}$/);	
     var match = false;
     age.addEventListener ("num", naissance);
 
@@ -91,16 +92,27 @@ function naissance (a) {
 } 
 
 
+// variante sur le prix de l'article 
 
+function article (arti) {
 
+    var validation = document.getElementById ("envoi");
+    var arti = document.getElementById ("prix");
+    var arti = parseInt(prompt("Quel est votre juste prix?"));
+    var arti = new RegExp(/^0[1-68]([\.|\-|\s]*[0-9]{2}){4}$/);	
+    var match = false;
+    prix.addEventListener ("somme",article);
 
+                    
+    if (prix <50) {
+        alert("Vous êtes en dessous du juste prix !");
+    }else if (prix =50) {
+        alert("Bravo ! Vous avez trouvé le juste prix ! ");
+    }else if (50> prix){
+        alert("Vous êtes au dessus du juste prix ! ");
+    }
 
-
-
-
-
-
-
+} 
 
 
 /*
