@@ -7,7 +7,13 @@ function play(e){
     e.preventDefault();
     
     // [2] Récuper la valeur du champ input
+    function getValue ()
+    var input = document.getElementById ("price").value;
+        alert ( input);
+
     // [3] Transfomer en nombre
+
+    
 
     // [4] Vérifier 
         // si c'est plus
